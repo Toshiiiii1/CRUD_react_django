@@ -3,6 +3,7 @@ import Navigation from "./components/Navigation.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Home";
 import Students from "./components/Students";
+import Manage from "./components/Manage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<Home />} />
                     <Route path="/students" element={<Students/>} />
+                    <Route path="/manage" element={<Manage/>} />
 				</Routes>
 			</BrowserRouter>
 		</>

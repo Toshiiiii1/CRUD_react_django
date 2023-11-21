@@ -42,7 +42,7 @@ const Students = () => {
 					<tbody>
                         {/* render a list */}
 						{students.map((stu) => (
-							<tr key={stu.id}>
+							<tr key={stu.studentId}>
 								<td>{stu.studentId}</td>
 								<td>{stu.FirstName}</td>
 								<td>{stu.LastName}</td>
