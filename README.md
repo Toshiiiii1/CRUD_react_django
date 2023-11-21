@@ -14,7 +14,7 @@
     ```
 
 ## Setup Backend
-- Nvaigate to cloned project directory
+- Navigate to cloned project directory
   ```sh
     cd CRUD_react_django
     ```

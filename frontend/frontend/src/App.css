@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,23 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+body,
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
 }
+
+.app-logo {
+	padding-left: 50px;
+}
+
+.sidebar {
+	display: flex;
+	height: 100vh;
+	float: left;
+	overflow: "scroll initial";
+}
+
