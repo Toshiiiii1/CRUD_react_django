@@ -16,21 +16,20 @@ const Manage = () => {
 	const [isUpdated, setIsUpdated] = useState(false);
 
 	useEffect(() => {
+		let mounted = true;
+		if (students.length && !isUpdated) {
+			return;
+		}
 		getStudents().then((data) => {
-			setStudents(data);
-			setIsUpdated(false);
+			if (mounted) {
+				setStudents(data);
+			}
 		});
-	}, []);
-
-    // ham
-    const load = (studentId, newStudent) => {
-        setStudents((data) => data.map(stu => {
-            if (stu.studentId === studentId) {
-                return newStudent;
-            }
-            return stu;
-        }));
-    };
+		return () => {
+			mounted = false;
+			setIsUpdated(false);
+		};
+	}, [isUpdated, students]);
 
 	const handleUpdate = (e, stu) => {
 		e.preventDefault();
@@ -116,14 +115,13 @@ const Manage = () => {
 						))}
 					</tbody>
 				</Table>
-                
-                {/* update form */}
+
+				{/* update form */}
 				<UpdateStudentModal
 					show={editModalShow}
 					student={editStudent}
 					setUpdated={setIsUpdated}
 					onHide={EditModelClose}
-                    onUpdate={load}
 				></UpdateStudentModal>
 
 				<ButtonToolbar>

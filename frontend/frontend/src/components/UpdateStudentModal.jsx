@@ -10,8 +10,6 @@ const UpdateStudentModal = (props) => {
 			(result) => {
 				alert(result);
 				props.setUpdated(true);
-                props.onUpdate(props.student.studentId, e.target);
-                console.log(e.target);
 			},
 			(error) => {
 				alert("Failed to Update Student");
