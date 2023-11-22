@@ -12,21 +12,18 @@ const Manage = () => {
 	const [students, setStudents] = useState([]);
 	const [addModalShow, setAddModalShow] = useState(false); // show add form or not
 	const [editModalShow, setEditModalShow] = useState(false); // show edit form or not
-	const [editStudent, setEditStudent] = useState({}); //
-	const [isUpdated, setIsUpdated] = useState(false);
+	const [editStudent, setEditStudent] = useState({}); // contain specific student to update
+	const [isUpdated, setIsUpdated] = useState(false); // check students is updated or not
 
 	useEffect(() => {
-		let mounted = true;
+		// if students isn't updated => does not thing
 		if (students.length && !isUpdated) {
 			return;
 		}
 		getStudents().then((data) => {
-			if (mounted) {
-				setStudents(data);
-			}
+			setStudents(data);
 		});
 		return () => {
-			mounted = false;
 			setIsUpdated(false);
 		};
 	}, [isUpdated, students]);

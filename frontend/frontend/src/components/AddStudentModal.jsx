@@ -6,7 +6,11 @@ import { addStudent } from "../services/StudentService";
 const AddStudentModal = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addStudent(e.target).then(
+		// convert form to object
+		const studentData = formToJSON(e.target);
+
+		// send object to backend
+		addStudent(studentData).then(
 			(result) => {
 				alert(result);
 				props.setUpdated(true);

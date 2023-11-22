@@ -26,26 +26,13 @@ export function deleteStudent(studentId) {
 // adding student
 export function addStudent(student) {
 	return axios
-		.post("http://127.0.0.1:8000/students/", {
-			studentId: null,
-			FirstName: student.FirstName.value,
-			LastName: student.LastName.value,
-			RegistrationNo: student.RegistrationNo.value,
-			Email: student.Email.value,
-			Course: student.Course.value,
-		})
+		.post("http://127.0.0.1:8000/students/", student)
 		.then((response) => response.data);
 }
 
 // updating student
 export function updateStudent(stuid, student) {
 	return axios
-		.put("http://127.0.0.1:8000/students/" + stuid + "/", {
-			FirstName: student.FirstName.value,
-			LastName: student.LastName.value,
-			RegistrationNo: student.RegistrationNo.value,
-			Email: student.Email.value,
-			Course: student.Course.value,
-		})
+		.put("http://127.0.0.1:8000/students/" + stuid + "/", student)
 		.then((response) => response.data);
 }

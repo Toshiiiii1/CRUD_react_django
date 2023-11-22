@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import { Modal, Col, Row, Form, Button } from "react-bootstrap";
 import { FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import { updateStudent } from "../services/StudentService";
+import { formToJSON } from "axios";
 
 const UpdateStudentModal = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		updateStudent(props.student.studentId, e.target).then(
+		// convert form to object
+		const studentData = formToJSON(e.target);
+		
+		// send object to backend
+		updateStudent(props.student.studentId, studentData).then(
 			(result) => {
 				alert(result);
 				props.setUpdated(true);
